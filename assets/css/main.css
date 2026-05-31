@@ -819,7 +819,7 @@ h3 {
 /* Show full images on the page instead of cropping them */
 .hero-card,
 .image-card {
-    overflow: hidden;
+    overflow: visible;
 }
 
 .quality-visuals img,
@@ -913,4 +913,19 @@ main img {
         max-height: 82vh;
         border-radius: 14px;
     }
+}
+
+@media (max-width: 768px) {
+
+    .image-lightbox {
+        padding: 5px;
+    }
+
+    .image-lightbox__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 95vh;
+        object-fit: contain;
+    }
+
 }
