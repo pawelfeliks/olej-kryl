@@ -20,7 +20,55 @@
     <link rel="canonical" href="https://olejzkryla.pl/" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
-    <script type="application/ld+json">
+    <style>
+        .language-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 18px;
+            padding: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .language-switcher button {
+            width: 38px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .language-switcher button:hover,
+        .language-switcher button:focus-visible {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.22);
+            outline: none;
+        }
+
+        .language-switcher button.is-active {
+            background: #ffffff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+        }
+
+        @media (max-width: 980px) {
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 14px;
+                align-self: flex-start;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json" id="organization-schema">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -35,22 +83,34 @@
 <body>
     <header id="header" class="site-header">
         <div class="container header-inner">
-            <a href="#top" class="logo" aria-label="Strona główna Olej z Kryla Premium">
+            <a href="#top" class="logo" aria-label="Strona główna Olej z Kryla Premium" data-i18n-aria="logoAria">
                 <span class="logo-mark"></span>
-                <span>Olej z Kryla Premium</span>
+                <span data-i18n="brandName">Olej z Kryla Premium</span>
             </a>
 
-            <button class="nav-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-label="Otwórz menu" aria-expanded="false" data-i18n-aria="openMenu">
                 <span></span><span></span><span></span>
             </button>
 
-            <nav class="site-nav" aria-label="Główna nawigacja">
-                <a href="#o-produkcie">O produkcie</a>
-                <a href="#sklad">Skład</a>
-                <a href="#jakosc">Jakość</a>
-                <a href="#algi">DHA z alg</a>
-                <a href="#faq">FAQ</a>
-                <a href="#kontakt" class="nav-cta">Kontakt</a>
+            <nav class="site-nav" aria-label="Główna nawigacja" data-i18n-aria="mainNavigation">
+                <a href="#o-produkcie" data-i18n="navProduct">O produkcie</a>
+                <a href="#sklad" data-i18n="navIngredients">Skład</a>
+                <a href="#jakosc" data-i18n="navQuality">Jakość</a>
+                <a href="#algi" data-i18n="navAlgae">DHA z alg</a>
+                <a href="#faq" data-i18n="navFaq">FAQ</a>
+                <a href="#kontakt" class="nav-cta" data-i18n="navContact">Kontakt</a>
+
+                <div class="language-switcher" aria-label="Wybór języka">
+                    <button type="button" class="language-button is-active" data-lang="pl" aria-label="Polski">
+                        <img src="assets/images/flags/pl.svg" alt="Polski" />
+                    </button>
+                    <button type="button" class="language-button" data-lang="en" aria-label="English">
+                        <img src="assets/images/flags/gb.svg" alt="English" />
+                    </button>
+                    <button type="button" class="language-button" data-lang="de" aria-label="Deutsch">
+                        <img src="assets/images/flags/de.svg" alt="Deutsch" />
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -59,32 +119,32 @@
         <section class="hero section-dark">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Omega-3 z kryla antarktycznego</p>
+                    <p class="eyebrow" data-i18n="heroEyebrow">Omega-3 z kryla antarktycznego</p>
 
-                    <h1>Olej z kryla premium z EPA, DHA, fosfolipidami i astaksantyną</h1>
+                    <h1 data-i18n="heroTitle">Olej z kryla premium z EPA, DHA, fosfolipidami i astaksantyną</h1>
 
-                    <p class="hero-text">
+                    <p class="hero-text" data-i18n="heroText">
                         Nowoczesny kompleks morski omega-3 dla osób, które szukają wysokiej jakości suplementacji opartej na czystym źródle, pełnej identyfikowalności i składnikach naturalnie obecnych w oleju z kryla.
                     </p>
 
                     <div class="hero-actions">
-                        <a href="#kontakt" class="button button-primary">Zapytaj o produkt</a>
-                        <a href="#sklad" class="button button-secondary">Zobacz skład</a>
+                        <a href="#kontakt" class="button button-primary" data-i18n="heroCtaPrimary">Zapytaj o produkt</a>
+                        <a href="#sklad" class="button button-secondary" data-i18n="heroCtaSecondary">Zobacz skład</a>
                     </div>
 
-                    <div class="hero-badges" aria-label="Najważniejsze składniki">
-                        <span>EPA i DHA</span>
-                        <span>Fosfolipidy</span>
-                        <span>Cholina</span>
-                        <span>Astaksantyna</span>
+                    <div class="hero-badges" aria-label="Najważniejsze składniki" data-i18n-aria="keyIngredients">
+                        <span data-i18n="badgeEpaDha">EPA i DHA</span>
+                        <span data-i18n="badgePhospholipids">Fosfolipidy</span>
+                        <span data-i18n="badgeCholine">Cholina</span>
+                        <span data-i18n="badgeAstaxanthin">Astaksantyna</span>
                     </div>
                 </div>
 
-                <aside class="hero-card" aria-label="Kapsułki i warianty produktu">
-                    <img src="assets/images/superba-products.jpg" alt="Kapsułki oleju z kryla omega-3 oraz przykładowe warianty Superba Krill" loading="eager" />
+                <aside class="hero-card" aria-label="Kapsułki i warianty produktu" data-i18n-aria="heroImageAria">
+                    <img src="assets/images/superba-products.jpg" alt="Kapsułki oleju z kryla omega-3 oraz przykładowe warianty Superba Krill" data-i18n-alt="heroImageAlt" loading="eager" />
                     <div class="hero-card-content">
-                        <strong>Naturalny kompleks wielu składników</strong>
-                        <span>Kwasy omega-3 EPA/DHA, fosfolipidy, cholina i astaksantyna w jednej formule.</span>
+                        <strong data-i18n="heroCardTitle">Naturalny kompleks wielu składników</strong>
+                        <span data-i18n="heroCardText">Kwasy omega-3 EPA/DHA, fosfolipidy, cholina i astaksantyna w jednej formule.</span>
                     </div>
                 </aside>
             </div>
@@ -93,18 +153,18 @@
         <section id="o-produkcie" class="section section-light">
             <div class="container split-grid">
                 <div>
-                    <p class="eyebrow">Dlaczego olej z kryla</p>
-                    <h2>Omega-3 w formie fosfolipidowej</h2>
+                    <p class="eyebrow" data-i18n="productEyebrow">Dlaczego olej z kryla</p>
+                    <h2 data-i18n="productTitle">Omega-3 w formie fosfolipidowej</h2>
 
-                    <p>
+                    <p data-i18n="productP1">
                         Olej z kryla wyróżnia się tym, że kwasy omega-3 EPA i DHA występują w nim w dużej części w formie fosfolipidowej. Fosfolipidy są naturalnym elementem błon komórkowych, dlatego ten rodzaj omega-3 dobrze pasuje do komunikacji o odżywianiu komórkowym i codziennym wsparciu organizmu.
                     </p>
 
-                    <p>
+                    <p data-i18n="productP2">
                         Formuła łączy kilka składników naturalnie obecnych w krylu: EPA, DHA, fosfolipidy, cholinę oraz astaksantynę. Dzięki temu olej z kryla nie jest tylko klasycznym źródłem omega-3, ale pełniejszym kompleksem lipidowym.
                     </p>
 
-                    <p>
+                    <p data-i18n="productP3">
                         To produkt dla osób, które zwracają uwagę nie tylko na dawkę EPA i DHA, ale również na pochodzenie surowca, świeżość oleju, czystość, transparentny łańcuch dostaw i wygodę stosowania.
                     </p>
                 </div>
@@ -112,26 +172,26 @@
                 <div class="feature-stack">
                     <article class="feature-card">
                         <span class="feature-number">01</span>
-                        <h3>EPA i DHA</h3>
-                        <p>Najważniejsze kwasy omega-3 stosowane w suplementach wspierających codzienną dietę.</p>
+                        <h3 data-i18n="feature1Title">EPA i DHA</h3>
+                        <p data-i18n="feature1Text">Najważniejsze kwasy omega-3 stosowane w suplementach wspierających codzienną dietę.</p>
                     </article>
 
                     <article class="feature-card">
                         <span class="feature-number">02</span>
-                        <h3>Fosfolipidy</h3>
-                        <p>Forma lipidowa charakterystyczna dla oleju z kryla, związana ze strukturą błon komórkowych.</p>
+                        <h3 data-i18n="feature2Title">Fosfolipidy</h3>
+                        <p data-i18n="feature2Text">Forma lipidowa charakterystyczna dla oleju z kryla, związana ze strukturą błon komórkowych.</p>
                     </article>
 
                     <article class="feature-card">
                         <span class="feature-number">03</span>
-                        <h3>Cholina</h3>
-                        <p>Składnik ważny dla prawidłowego metabolizmu lipidów, metabolizmu homocysteiny i funkcji wątroby.</p>
+                        <h3 data-i18n="feature3Title">Cholina</h3>
+                        <p data-i18n="feature3Text">Składnik ważny dla prawidłowego metabolizmu lipidów, metabolizmu homocysteiny i funkcji wątroby.</p>
                     </article>
 
                     <article class="feature-card">
                         <span class="feature-number">04</span>
-                        <h3>Astaksantyna</h3>
-                        <p>Naturalny antyoksydant odpowiedzialny za intensywnie czerwony kolor oleju z kryla.</p>
+                        <h3 data-i18n="feature4Title">Astaksantyna</h3>
+                        <p data-i18n="feature4Text">Naturalny antyoksydant odpowiedzialny za intensywnie czerwony kolor oleju z kryla.</p>
                     </article>
                 </div>
             </div>
@@ -140,10 +200,10 @@
         <section class="section section-white">
             <div class="container">
                 <div class="section-heading centered">
-                    <p class="eyebrow">Codzienne wsparcie diety</p>
-                    <h2>Przemyślana formuła dla osób dbających o jakość suplementacji</h2>
+                    <p class="eyebrow" data-i18n="supportEyebrow">Codzienne wsparcie diety</p>
+                    <h2 data-i18n="supportTitle">Przemyślana formuła dla osób dbających o jakość suplementacji</h2>
 
-                    <p>
+                    <p data-i18n="supportText">
                         Treści na stronie są napisane rzeczowo i bez obietnic leczenia. Skupiają się na składzie, jakości, pochodzeniu oraz autoryzowanych kierunkach komunikacji dla EPA, DHA i choliny.
                     </p>
                 </div>
@@ -151,26 +211,26 @@
                 <div class="benefit-grid">
                     <article class="benefit-card">
                         <span class="benefit-icon">♥</span>
-                        <h3>Serce</h3>
-                        <p>EPA i DHA przyczyniają się do prawidłowego funkcjonowania serca. Korzystne działanie występuje przy odpowiednim dziennym spożyciu tych kwasów tłuszczowych.</p>
+                        <h3 data-i18n="benefitHeartTitle">Serce</h3>
+                        <p data-i18n="benefitHeartText">EPA i DHA przyczyniają się do prawidłowego funkcjonowania serca. Korzystne działanie występuje przy odpowiednim dziennym spożyciu tych kwasów tłuszczowych.</p>
                     </article>
 
                     <article class="benefit-card">
                         <span class="benefit-icon">●</span>
-                        <h3>Mózg i wzrok</h3>
-                        <p>DHA przyczynia się do utrzymania prawidłowego funkcjonowania mózgu oraz prawidłowego widzenia przy spełnieniu wymaganych warunków stosowania.</p>
+                        <h3 data-i18n="benefitBrainTitle">Mózg i wzrok</h3>
+                        <p data-i18n="benefitBrainText">DHA przyczynia się do utrzymania prawidłowego funkcjonowania mózgu oraz prawidłowego widzenia przy spełnieniu wymaganych warunków stosowania.</p>
                     </article>
 
                     <article class="benefit-card">
                         <span class="benefit-icon">⬢</span>
-                        <h3>Wątroba i metabolizm</h3>
-                        <p>Cholina wspiera prawidłowy metabolizm lipidów, prawidłowy metabolizm homocysteiny oraz prawidłowe funkcjonowanie wątroby.</p>
+                        <h3 data-i18n="benefitLiverTitle">Wątroba i metabolizm</h3>
+                        <p data-i18n="benefitLiverText">Cholina wspiera prawidłowy metabolizm lipidów, prawidłowy metabolizm homocysteiny oraz prawidłowe funkcjonowanie wątroby.</p>
                     </article>
 
                     <article class="benefit-card">
                         <span class="benefit-icon">↗</span>
-                        <h3>Aktywny styl życia</h3>
-                        <p>Olej z kryla można włączyć do codziennej suplementacji osób aktywnych, które chcą uzupełniać dietę w omega-3 i składniki lipidowe.</p>
+                        <h3 data-i18n="benefitActiveTitle">Aktywny styl życia</h3>
+                        <p data-i18n="benefitActiveText">Olej z kryla można włączyć do codziennej suplementacji osób aktywnych, które chcą uzupełniać dietę w omega-3 i składniki lipidowe.</p>
                     </article>
                 </div>
             </div>
@@ -180,61 +240,55 @@
             <div class="container">
                 <div class="composition-grid">
                     <div>
-                        <p class="eyebrow">Skład produktu</p>
-                        <h2>Przykładowy profil Superba Krill w porcji 2 kapsułek</h2>
+                        <p class="eyebrow" data-i18n="compositionEyebrow">Skład produktu</p>
+                        <h2 data-i18n="compositionTitle">Przykładowy profil Superba Krill w porcji 2 kapsułek</h2>
 
-                        <p>
+                        <p data-i18n="compositionText">
                             Poniższa tabela pokazuje przykładowy profil składników dla dwóch wariantów oleju z kryla. Zamiast powtarzać te same informacje na grafice, dane zostały przedstawione w czytelnej tabeli, która lepiej działa na urządzeniach mobilnych i jest korzystniejsza dla SEO.
                         </p>
 
-                        <div class="table-wrap" role="region" aria-label="Tabela składu oleju z kryla" tabindex="0">
+                        <div class="table-wrap" role="region" aria-label="Tabela składu oleju z kryla" data-i18n-aria="compositionTableAria" tabindex="0">
                             <table class="product-table">
                                 <thead>
                                     <tr>
-                                        <th>Składnik</th>
+                                        <th data-i18n="tableIngredient">Składnik</th>
                                         <th>Superba 2<br><small>500 mg</small></th>
                                         <th>Superba Boost<br><small>590 mg</small></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>Omega-3</td><td>220 mg</td><td>318 mg</td></tr>
+                                    <tr><td data-i18n="tableOmega3">Omega-3</td><td>220 mg</td><td>318 mg</td></tr>
                                     <tr><td>EPA</td><td>120 mg</td><td>178 mg</td></tr>
                                     <tr><td>DHA</td><td>56 mg</td><td>82 mg</td></tr>
-                                    <tr><td>Fosfolipidy</td><td>400 mg</td><td>660 mg</td></tr>
-                                    <tr><td>Cholina</td><td>50 mg</td><td>82,6 mg</td></tr>
-                                    <tr><td>Astaksantyna</td><td>100 mcg</td><td>100 mcg</td></tr>
+                                    <tr><td data-i18n="tablePhospholipids">Fosfolipidy</td><td>400 mg</td><td>660 mg</td></tr>
+                                    <tr><td data-i18n="tableCholine">Cholina</td><td>50 mg</td><td>82,6 mg</td></tr>
+                                    <tr><td data-i18n="tableAstaxanthin">Astaksantyna</td><td>100 mcg</td><td>100 mcg</td></tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <p class="composition-note">
+                        <p class="composition-note" data-i18n="compositionNote">
                             Dane mają charakter informacyjny i pokazują przykładowy profil produktu. Finalna etykieta, dawkowanie i oświadczenia zdrowotne powinny zostać dopasowane do konkretnego rynku sprzedaży.
                         </p>
                     </div>
 
-                    <aside class="nutrition-highlights" aria-label="Najważniejsze informacje o składzie">
+                    <aside class="nutrition-highlights" aria-label="Najważniejsze informacje o składzie" data-i18n-aria="nutritionHighlightsAria">
                         <article>
                             <span>01</span>
-                            <h3>Kompleks omega-3</h3>
-                            <p>
-                                EPA i DHA to podstawowe kwasy tłuszczowe omega-3, których wiele osób nie dostarcza w wystarczającej ilości z codziennej diety.
-                            </p>
+                            <h3 data-i18n="nutrition1Title">Kompleks omega-3</h3>
+                            <p data-i18n="nutrition1Text">EPA i DHA to podstawowe kwasy tłuszczowe omega-3, których wiele osób nie dostarcza w wystarczającej ilości z codziennej diety.</p>
                         </article>
 
                         <article>
                             <span>02</span>
-                            <h3>Fosfolipidy z kryla</h3>
-                            <p>
-                                Fosfolipidy nadają olejowi z kryla charakterystyczny profil i są jednym z najważniejszych argumentów odróżniających go od klasycznych olejów rybich.
-                            </p>
+                            <h3 data-i18n="nutrition2Title">Fosfolipidy z kryla</h3>
+                            <p data-i18n="nutrition2Text">Fosfolipidy nadają olejowi z kryla charakterystyczny profil i są jednym z najważniejszych argumentów odróżniających go od klasycznych olejów rybich.</p>
                         </article>
 
                         <article>
                             <span>03</span>
-                            <h3>Cholina i astaksantyna</h3>
-                            <p>
-                                Cholina wzmacnia profil funkcjonalny produktu, a astaksantyna jest naturalnym składnikiem oleju odpowiadającym za jego czerwony kolor.
-                            </p>
+                            <h3 data-i18n="nutrition3Title">Cholina i astaksantyna</h3>
+                            <p data-i18n="nutrition3Text">Cholina wzmacnia profil funkcjonalny produktu, a astaksantyna jest naturalnym składnikiem oleju odpowiadającym za jego czerwony kolor.</p>
                         </article>
                     </aside>
                 </div>
@@ -244,25 +298,25 @@
         <section id="jakosc" class="section section-white">
             <div class="container quality-grid">
                 <div class="section-heading">
-                    <p class="eyebrow">Jakość i pochodzenie</p>
-                    <h2>Czyste źródło, kontrolowany łańcuch dostaw i pełna identyfikowalność</h2>
+                    <p class="eyebrow" data-i18n="qualityEyebrow">Jakość i pochodzenie</p>
+                    <h2 data-i18n="qualityTitle">Czyste źródło, kontrolowany łańcuch dostaw i pełna identyfikowalność</h2>
 
-                    <p>
+                    <p data-i18n="qualityText">
                         W kategorii omega-3 jakość surowca ma kluczowe znaczenie. Olej z kryla premium powinien być oceniany nie tylko przez pryzmat ilości EPA i DHA, ale również przez pochodzenie, świeżość, sposób pozyskania, dokumentację jakościową i możliwość śledzenia partii.
                     </p>
 
                     <ul class="check-list">
-                        <li>pochodzenie z antarktycznych łowisk kryla,</li>
-                        <li>kontrolowany i transparentny łańcuch dostaw,</li>
-                        <li>technologia ograniczająca przyłów,</li>
-                        <li>naturalna obecność astaksantyny,</li>
-                        <li>komunikacja oparta na dokumentacji jakościowej i badaniach.</li>
+                        <li data-i18n="qualityLi1">pochodzenie z antarktycznych łowisk kryla,</li>
+                        <li data-i18n="qualityLi2">kontrolowany i transparentny łańcuch dostaw,</li>
+                        <li data-i18n="qualityLi3">technologia ograniczająca przyłów,</li>
+                        <li data-i18n="qualityLi4">naturalna obecność astaksantyny,</li>
+                        <li data-i18n="qualityLi5">komunikacja oparta na dokumentacji jakościowej i badaniach.</li>
                     </ul>
                 </div>
 
                 <div class="quality-visuals">
-                    <img src="assets/images/sustainability-banner.gif" alt="Certyfikacje i standardy jakości związane z odpowiedzialnym pozyskiwaniem oleju z kryla" loading="lazy" />
-                    <img src="assets/images/superba-traceability.jpg" alt="Infografika pokazująca identyfikowalność oleju z kryla od połowu do produktu końcowego" loading="lazy" />
+                    <img src="assets/images/sustainability-banner.gif" alt="Certyfikacje i standardy jakości związane z odpowiedzialnym pozyskiwaniem oleju z kryla" data-i18n-alt="sustainabilityAlt" loading="lazy" />
+                    <img src="assets/images/superba-traceability.jpg" alt="Infografika pokazująca identyfikowalność oleju z kryla od połowu do produktu końcowego" data-i18n-alt="traceabilityAlt" loading="lazy" />
                 </div>
             </div>
         </section>
@@ -271,26 +325,26 @@
             <div class="container proof-grid">
                 <article>
                     <span class="proof-number">50+</span>
-                    <h3>badań klinicznych</h3>
-                    <p>Materiały producenta podkreślają szerokie zaplecze badań nad olejem z kryla i jego składnikami.</p>
+                    <h3 data-i18n="proof1Title">badań klinicznych</h3>
+                    <p data-i18n="proof1Text">Materiały producenta podkreślają szerokie zaplecze badań nad olejem z kryla i jego składnikami.</p>
                 </article>
 
                 <article>
                     <span class="proof-number">95</span>
-                    <h3>patentów</h3>
-                    <p>Technologia i know-how są ważnym elementem pozycjonowania produktu premium.</p>
+                    <h3 data-i18n="proof2Title">patentów</h3>
+                    <p data-i18n="proof2Text">Technologia i know-how są ważnym elementem pozycjonowania produktu premium.</p>
                 </article>
 
                 <article>
                     <span class="proof-number">65+</span>
-                    <h3>krajów</h3>
-                    <p>Globalna obecność wzmacnia wiarygodność dostawcy i stabilność łańcucha dostaw.</p>
+                    <h3 data-i18n="proof3Title">krajów</h3>
+                    <p data-i18n="proof3Text">Globalna obecność wzmacnia wiarygodność dostawcy i stabilność łańcucha dostaw.</p>
                 </article>
 
                 <article>
                     <span class="proof-number">100%</span>
-                    <h3>identyfikowalności</h3>
-                    <p>Możliwość śledzenia partii od źródła do produktu końcowego jest jednym z głównych argumentów jakościowych.</p>
+                    <h3 data-i18n="proof4Title">identyfikowalności</h3>
+                    <p data-i18n="proof4Text">Możliwość śledzenia partii od źródła do produktu końcowego jest jednym z głównych argumentów jakościowych.</p>
                 </article>
             </div>
         </section>
@@ -298,38 +352,38 @@
         <section id="algi" class="section section-light">
             <div class="container split-grid align-center">
                 <div>
-                    <p class="eyebrow">DHA z alg</p>
-                    <h2>Roślinne omega-3 z mikroalg jako osobna linia produktu</h2>
+                    <p class="eyebrow" data-i18n="algaeEyebrow">DHA z alg</p>
+                    <h2 data-i18n="algaeTitle">Roślinne omega-3 z mikroalg jako osobna linia produktu</h2>
 
-                    <p>
+                    <p data-i18n="algaeP1">
                         Olej z mikroalg to nowoczesna alternatywa dla osób, które szukają DHA bez ryb i bez składników pochodzących ze skorupiaków. Mikroalgi są pierwotnym źródłem DHA w morskim łańcuchu pokarmowym, dlatego stanowią logiczny kierunek rozwoju suplementów omega-3.
                     </p>
 
-                    <p>
+                    <p data-i18n="algaeP2">
                         Linia Revervia obejmuje oleje z alg w naturalnej formie triglicerydowej, z wysoką zawartością DHA. To rozwiązanie pasuje do produktów pozycjonowanych jako fish-free, vegan, soy free, GMO free i solvent free.
                     </p>
 
                     <div class="mini-cards">
                         <div>
                             <strong>DHA 40</strong>
-                            <span>praktyczny wariant do codziennej suplementacji</span>
+                            <span data-i18n="algaeCard1">praktyczny wariant do codziennej suplementacji</span>
                         </div>
 
                         <div>
                             <strong>DHA 57</strong>
-                            <span>wysoka koncentracja DHA z mikroalg</span>
+                            <span data-i18n="algaeCard2">wysoka koncentracja DHA z mikroalg</span>
                         </div>
 
                         <div>
                             <strong>DHA 60</strong>
-                            <span>najwyższa koncentracja DHA w tej linii</span>
+                            <span data-i18n="algaeCard3">najwyższa koncentracja DHA w tej linii</span>
                         </div>
                     </div>
                 </div>
 
                 <figure class="image-card image-card-large">
-                    <img src="assets/images/revervia-products.jpg" alt="Revervia DHA z mikroalg jako roślinne źródło omega-3" loading="lazy" />
-                    <figcaption>DHA z alg może być komunikowane jako osobna, roślinna linia omega-3 dla klientów unikających ryb i skorupiaków.</figcaption>
+                    <img src="assets/images/revervia-products.jpg" alt="Revervia DHA z mikroalg jako roślinne źródło omega-3" data-i18n-alt="algaeImageAlt" loading="lazy" />
+                    <figcaption data-i18n="algaeCaption">DHA z alg może być komunikowane jako osobna, roślinna linia omega-3 dla klientów unikających ryb i skorupiaków.</figcaption>
                 </figure>
             </div>
         </section>
@@ -337,25 +391,25 @@
         <section class="section section-white">
             <div class="container split-grid align-center">
                 <div>
-                    <p class="eyebrow">Dwie ścieżki suplementacji</p>
-                    <h2>Olej z kryla i DHA z alg mogą odpowiadać na różne potrzeby klientów</h2>
+                    <p class="eyebrow" data-i18n="pathsEyebrow">Dwie ścieżki suplementacji</p>
+                    <h2 data-i18n="pathsTitle">Olej z kryla i DHA z alg mogą odpowiadać na różne potrzeby klientów</h2>
 
-                    <p>
+                    <p data-i18n="pathsText">
                         Olej z kryla jest dobrym kierunkiem dla osób szukających kompleksu EPA/DHA z fosfolipidami, choliną i astaksantyną. Olej z alg lepiej pasuje do klientów, którzy chcą roślinnego DHA bez ryb i bez skorupiaków.
                     </p>
                 </div>
 
                 <div class="feature-stack">
                     <article class="feature-card">
-                        <span class="feature-number">KRYL</span>
-                        <h3>Kompleks morski</h3>
-                        <p>EPA, DHA, fosfolipidy, cholina i astaksantyna w jednej formule pochodzącej z kryla.</p>
+                        <span class="feature-number" data-i18n="krillLabel">KRYL</span>
+                        <h3 data-i18n="pathKrillTitle">Kompleks morski</h3>
+                        <p data-i18n="pathKrillText">EPA, DHA, fosfolipidy, cholina i astaksantyna w jednej formule pochodzącej z kryla.</p>
                     </article>
 
                     <article class="feature-card">
-                        <span class="feature-number">ALGI</span>
-                        <h3>Roślinne DHA</h3>
-                        <p>Fish-free alternatywa dla osób szukających wysokiej zawartości DHA z mikroalg.</p>
+                        <span class="feature-number" data-i18n="algaeLabel">ALGI</span>
+                        <h3 data-i18n="pathAlgaeTitle">Roślinne DHA</h3>
+                        <p data-i18n="pathAlgaeText">Fish-free alternatywa dla osób szukających wysokiej zawartości DHA z mikroalg.</p>
                     </article>
                 </div>
             </div>
@@ -365,36 +419,28 @@
             <div class="container">
                 <div class="section-heading centered">
                     <p class="eyebrow">FAQ</p>
-                    <h2>Najczęściej zadawane pytania</h2>
+                    <h2 data-i18n="faqTitle">Najczęściej zadawane pytania</h2>
                 </div>
 
                 <div class="feature-stack">
                     <article class="feature-card">
-                        <h3>Co zawiera olej z kryla?</h3>
-                        <p>
-                            Olej z kryla zawiera kwasy omega-3 EPA i DHA, fosfolipidy, cholinę oraz naturalnie obecną astaksantynę. To połączenie odróżnia go od wielu klasycznych olejów rybich.
-                        </p>
+                        <h3 data-i18n="faq1Q">Co zawiera olej z kryla?</h3>
+                        <p data-i18n="faq1A">Olej z kryla zawiera kwasy omega-3 EPA i DHA, fosfolipidy, cholinę oraz naturalnie obecną astaksantynę. To połączenie odróżnia go od wielu klasycznych olejów rybich.</p>
                     </article>
 
                     <article class="feature-card">
-                        <h3>Czym olej z kryla różni się od oleju rybiego?</h3>
-                        <p>
-                            Najważniejszą różnicą jest forma lipidowa. W oleju z kryla duża część omega-3 występuje w formie fosfolipidów, które są naturalnym elementem błon komórkowych.
-                        </p>
+                        <h3 data-i18n="faq2Q">Czym olej z kryla różni się od oleju rybiego?</h3>
+                        <p data-i18n="faq2A">Najważniejszą różnicą jest forma lipidowa. W oleju z kryla duża część omega-3 występuje w formie fosfolipidów, które są naturalnym elementem błon komórkowych.</p>
                     </article>
 
                     <article class="feature-card">
-                        <h3>Czym jest DHA z alg?</h3>
-                        <p>
-                            DHA z alg to roślinne źródło kwasu dokozaheksaenowego. Jest odpowiednie dla produktów kierowanych do osób, które nie chcą stosować oleju rybiego lub składników ze skorupiaków.
-                        </p>
+                        <h3 data-i18n="faq3Q">Czym jest DHA z alg?</h3>
+                        <p data-i18n="faq3A">DHA z alg to roślinne źródło kwasu dokozaheksaenowego. Jest odpowiednie dla produktów kierowanych do osób, które nie chcą stosować oleju rybiego lub składników ze skorupiaków.</p>
                     </article>
 
                     <article class="feature-card">
-                        <h3>Czy olej z kryla jest dla każdego?</h3>
-                        <p>
-                            Olej z kryla pochodzi ze skorupiaków. Osoby z alergią na skorupiaki, kobiety w ciąży, osoby karmiące piersią oraz osoby przyjmujące leki powinny skonsultować stosowanie suplementu z lekarzem.
-                        </p>
+                        <h3 data-i18n="faq4Q">Czy olej z kryla jest dla każdego?</h3>
+                        <p data-i18n="faq4A">Olej z kryla pochodzi ze skorupiaków. Osoby z alergią na skorupiaki, kobiety w ciąży, osoby karmiące piersią oraz osoby przyjmujące leki powinny skonsultować stosowanie suplementu z lekarzem.</p>
                     </article>
                 </div>
             </div>
@@ -403,48 +449,48 @@
         <section id="kontakt" class="section contact-section section-dark">
             <div class="container contact-grid">
                 <div>
-                    <p class="eyebrow">Kontakt</p>
-                    <h2>Zapytaj o olej z kryla lub DHA z alg</h2>
+                    <p class="eyebrow" data-i18n="contactEyebrow">Kontakt</p>
+                    <h2 data-i18n="contactTitle">Zapytaj o olej z kryla lub DHA z alg</h2>
 
-                    <p>
+                    <p data-i18n="contactText">
                         Skontaktuj się, jeżeli chcesz uzyskać więcej informacji o produkcie, wariantach, dokumentacji jakościowej lub możliwościach współpracy.
                     </p>
 
                     <div class="contact-details">
                         <a href="mailto:olejzkryla@gmail.com">olejzkryla@gmail.com</a>
                         <a href="tel:+48727198727">+48 727 198 727</a>
-                        <span>Zapytania dotyczące oleju z kryla, DHA z alg i produktów omega-3</span>
+                        <span data-i18n="contactDetails">Zapytania dotyczące oleju z kryla, DHA z alg i produktów omega-3</span>
                     </div>
                 </div>
 
                 <form class="contact-form" action="mailto:olejzkryla@gmail.com" method="post" enctype="text/plain">
                     <label>
-                        Imię i nazwisko / firma
-                        <input type="text" name="name" placeholder="Jan Kowalski / Nazwa firmy" required />
+                        <span data-i18n="formName">Imię i nazwisko / firma</span>
+                        <input type="text" name="name" placeholder="Jan Kowalski / Nazwa firmy" data-i18n-placeholder="formNamePlaceholder" required />
                     </label>
 
                     <label>
-                        E-mail
-                        <input type="email" name="email" placeholder="email@firma.pl" required />
+                        <span data-i18n="formEmail">E-mail</span>
+                        <input type="email" name="email" placeholder="email@firma.pl" data-i18n-placeholder="formEmailPlaceholder" required />
                     </label>
 
                     <label>
-                        Temat
+                        <span data-i18n="formTopic">Temat</span>
                         <select name="topic" required>
-                            <option value="Olej z kryla">Olej z kryla</option>
-                            <option value="DHA z alg">DHA z alg</option>
-                            <option value="Dokumentacja jakościowa">Dokumentacja jakościowa</option>
-                            <option value="Współpraca">Współpraca</option>
-                            <option value="Inne">Inne</option>
+                            <option value="Olej z kryla" data-i18n="optionKrill">Olej z kryla</option>
+                            <option value="DHA z alg" data-i18n="optionAlgae">DHA z alg</option>
+                            <option value="Dokumentacja jakościowa" data-i18n="optionDocs">Dokumentacja jakościowa</option>
+                            <option value="Współpraca" data-i18n="optionCooperation">Współpraca</option>
+                            <option value="Inne" data-i18n="optionOther">Inne</option>
                         </select>
                     </label>
 
                     <label>
-                        Wiadomość
-                        <textarea name="message" rows="5" placeholder="Napisz, czego potrzebujesz: produkt, wariant, ilość, dokumentacja, rynek sprzedaży." required></textarea>
+                        <span data-i18n="formMessage">Wiadomość</span>
+                        <textarea name="message" rows="5" placeholder="Napisz, czego potrzebujesz: produkt, wariant, ilość, dokumentacja, rynek sprzedaży." data-i18n-placeholder="formMessagePlaceholder" required></textarea>
                     </label>
 
-                    <button class="button button-primary" type="submit">Wyślij zapytanie</button>
+                    <button class="button button-primary" type="submit" data-i18n="formSubmit">Wyślij zapytanie</button>
                 </form>
             </div>
         </section>
@@ -453,21 +499,19 @@
     <footer class="site-footer">
         <div class="container footer-grid">
             <div>
-                <strong>Olej z Kryla Premium</strong>
-                <p>
-                    Strona informacyjna dotycząca oleju z kryla, omega-3 EPA/DHA oraz DHA z alg. Treści nie zastępują porady medycznej.
-                </p>
+                <strong data-i18n="footerBrand">Olej z Kryla Premium</strong>
+                <p data-i18n="footerText">Strona informacyjna dotycząca oleju z kryla, omega-3 EPA/DHA oraz DHA z alg. Treści nie zastępują porady medycznej.</p>
             </div>
 
             <div class="footer-links">
                 <a href="mailto:olejzkryla@gmail.com">olejzkryla@gmail.com</a>
                 <a href="tel:+48727198727">+48 727 198 727</a>
-                <a href="#top">Powrót na górę</a>
+                <a href="#top" data-i18n="footerTop">Powrót na górę</a>
             </div>
         </div>
     </footer>
 
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="faq-schema">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -501,5 +545,527 @@
     </script>
 
     <script src="assets/js/main.js"></script>
+
+    <script>
+        const translations = {
+            pl: {
+                htmlLang: "pl",
+                ogLocale: "pl_PL",
+                pageTitle: "Olej z Kryla Premium | Omega-3 EPA DHA, Fosfolipidy i Astaksantyna",
+                metaDescription: "Olej z kryla premium z kwasami omega-3 EPA i DHA, fosfolipidami, choliną oraz naturalną astaksantyną. Poznaj skład, jakość, pochodzenie oraz roślinne DHA z alg.",
+                metaKeywords: "olej z kryla, olej z kryla omega 3, omega 3 EPA DHA, fosfolipidy, cholina, astaksantyna, kryl antarktyczny, DHA z alg, olej z alg, suplement omega 3",
+                ogTitle: "Olej z Kryla Premium | Omega-3 EPA DHA",
+                ogDescription: "Naturalny kompleks omega-3 z kryla: EPA, DHA, fosfolipidy, cholina i astaksantyna. Dodatkowo roślinne DHA z alg.",
+                brandName: "Olej z Kryla Premium",
+                logoAria: "Strona główna Olej z Kryla Premium",
+                openMenu: "Otwórz menu",
+                mainNavigation: "Główna nawigacja",
+                languageChooser: "Wybór języka",
+                navProduct: "O produkcie",
+                navIngredients: "Skład",
+                navQuality: "Jakość",
+                navAlgae: "DHA z alg",
+                navFaq: "FAQ",
+                navContact: "Kontakt",
+                heroEyebrow: "Omega-3 z kryla antarktycznego",
+                heroTitle: "Olej z kryla premium z EPA, DHA, fosfolipidami i astaksantyną",
+                heroText: "Nowoczesny kompleks morski omega-3 dla osób, które szukają wysokiej jakości suplementacji opartej na czystym źródle, pełnej identyfikowalności i składnikach naturalnie obecnych w oleju z kryla.",
+                heroCtaPrimary: "Zapytaj o produkt",
+                heroCtaSecondary: "Zobacz skład",
+                keyIngredients: "Najważniejsze składniki",
+                badgeEpaDha: "EPA i DHA",
+                badgePhospholipids: "Fosfolipidy",
+                badgeCholine: "Cholina",
+                badgeAstaxanthin: "Astaksantyna",
+                heroImageAria: "Kapsułki i warianty produktu",
+                heroImageAlt: "Kapsułki oleju z kryla omega-3 oraz przykładowe warianty Superba Krill",
+                heroCardTitle: "Naturalny kompleks wielu składników",
+                heroCardText: "Kwasy omega-3 EPA/DHA, fosfolipidy, cholina i astaksantyna w jednej formule.",
+                productEyebrow: "Dlaczego olej z kryla",
+                productTitle: "Omega-3 w formie fosfolipidowej",
+                productP1: "Olej z kryla wyróżnia się tym, że kwasy omega-3 EPA i DHA występują w nim w dużej części w formie fosfolipidowej. Fosfolipidy są naturalnym elementem błon komórkowych, dlatego ten rodzaj omega-3 dobrze pasuje do komunikacji o odżywianiu komórkowym i codziennym wsparciu organizmu.",
+                productP2: "Formuła łączy kilka składników naturalnie obecnych w krylu: EPA, DHA, fosfolipidy, cholinę oraz astaksantynę. Dzięki temu olej z kryla nie jest tylko klasycznym źródłem omega-3, ale pełniejszym kompleksem lipidowym.",
+                productP3: "To produkt dla osób, które zwracają uwagę nie tylko na dawkę EPA i DHA, ale również na pochodzenie surowca, świeżość oleju, czystość, transparentny łańcuch dostaw i wygodę stosowania.",
+                feature1Title: "EPA i DHA",
+                feature1Text: "Najważniejsze kwasy omega-3 stosowane w suplementach wspierających codzienną dietę.",
+                feature2Title: "Fosfolipidy",
+                feature2Text: "Forma lipidowa charakterystyczna dla oleju z kryla, związana ze strukturą błon komórkowych.",
+                feature3Title: "Cholina",
+                feature3Text: "Składnik ważny dla prawidłowego metabolizmu lipidów, metabolizmu homocysteiny i funkcji wątroby.",
+                feature4Title: "Astaksantyna",
+                feature4Text: "Naturalny antyoksydant odpowiedzialny za intensywnie czerwony kolor oleju z kryla.",
+                supportEyebrow: "Codzienne wsparcie diety",
+                supportTitle: "Przemyślana formuła dla osób dbających o jakość suplementacji",
+                supportText: "Treści na stronie są napisane rzeczowo i bez obietnic leczenia. Skupiają się na składzie, jakości, pochodzeniu oraz autoryzowanych kierunkach komunikacji dla EPA, DHA i choliny.",
+                benefitHeartTitle: "Serce",
+                benefitHeartText: "EPA i DHA przyczyniają się do prawidłowego funkcjonowania serca. Korzystne działanie występuje przy odpowiednim dziennym spożyciu tych kwasów tłuszczowych.",
+                benefitBrainTitle: "Mózg i wzrok",
+                benefitBrainText: "DHA przyczynia się do utrzymania prawidłowego funkcjonowania mózgu oraz prawidłowego widzenia przy spełnieniu wymaganych warunków stosowania.",
+                benefitLiverTitle: "Wątroba i metabolizm",
+                benefitLiverText: "Cholina wspiera prawidłowy metabolizm lipidów, prawidłowy metabolizm homocysteiny oraz prawidłowe funkcjonowanie wątroby.",
+                benefitActiveTitle: "Aktywny styl życia",
+                benefitActiveText: "Olej z kryla można włączyć do codziennej suplementacji osób aktywnych, które chcą uzupełniać dietę w omega-3 i składniki lipidowe.",
+                compositionEyebrow: "Skład produktu",
+                compositionTitle: "Przykładowy profil Superba Krill w porcji 2 kapsułek",
+                compositionText: "Poniższa tabela pokazuje przykładowy profil składników dla dwóch wariantów oleju z kryla. Zamiast powtarzać te same informacje na grafice, dane zostały przedstawione w czytelnej tabeli, która lepiej działa na urządzeniach mobilnych i jest korzystniejsza dla SEO.",
+                compositionTableAria: "Tabela składu oleju z kryla",
+                tableIngredient: "Składnik",
+                tableOmega3: "Omega-3",
+                tablePhospholipids: "Fosfolipidy",
+                tableCholine: "Cholina",
+                tableAstaxanthin: "Astaksantyna",
+                compositionNote: "Dane mają charakter informacyjny i pokazują przykładowy profil produktu. Finalna etykieta, dawkowanie i oświadczenia zdrowotne powinny zostać dopasowane do konkretnego rynku sprzedaży.",
+                nutritionHighlightsAria: "Najważniejsze informacje o składzie",
+                nutrition1Title: "Kompleks omega-3",
+                nutrition1Text: "EPA i DHA to podstawowe kwasy tłuszczowe omega-3, których wiele osób nie dostarcza w wystarczającej ilości z codziennej diety.",
+                nutrition2Title: "Fosfolipidy z kryla",
+                nutrition2Text: "Fosfolipidy nadają olejowi z kryla charakterystyczny profil i są jednym z najważniejszych argumentów odróżniających go od klasycznych olejów rybich.",
+                nutrition3Title: "Cholina i astaksantyna",
+                nutrition3Text: "Cholina wzmacnia profil funkcjonalny produktu, a astaksantyna jest naturalnym składnikiem oleju odpowiadającym za jego czerwony kolor.",
+                qualityEyebrow: "Jakość i pochodzenie",
+                qualityTitle: "Czyste źródło, kontrolowany łańcuch dostaw i pełna identyfikowalność",
+                qualityText: "W kategorii omega-3 jakość surowca ma kluczowe znaczenie. Olej z kryla premium powinien być oceniany nie tylko przez pryzmat ilości EPA i DHA, ale również przez pochodzenie, świeżość, sposób pozyskania, dokumentację jakościową i możliwość śledzenia partii.",
+                qualityLi1: "pochodzenie z antarktycznych łowisk kryla,",
+                qualityLi2: "kontrolowany i transparentny łańcuch dostaw,",
+                qualityLi3: "technologia ograniczająca przyłów,",
+                qualityLi4: "naturalna obecność astaksantyny,",
+                qualityLi5: "komunikacja oparta na dokumentacji jakościowej i badaniach.",
+                sustainabilityAlt: "Certyfikacje i standardy jakości związane z odpowiedzialnym pozyskiwaniem oleju z kryla",
+                traceabilityAlt: "Infografika pokazująca identyfikowalność oleju z kryla od połowu do produktu końcowego",
+                proof1Title: "badań klinicznych",
+                proof1Text: "Materiały producenta podkreślają szerokie zaplecze badań nad olejem z kryla i jego składnikami.",
+                proof2Title: "patentów",
+                proof2Text: "Technologia i know-how są ważnym elementem pozycjonowania produktu premium.",
+                proof3Title: "krajów",
+                proof3Text: "Globalna obecność wzmacnia wiarygodność dostawcy i stabilność łańcucha dostaw.",
+                proof4Title: "identyfikowalności",
+                proof4Text: "Możliwość śledzenia partii od źródła do produktu końcowego jest jednym z głównych argumentów jakościowych.",
+                algaeEyebrow: "DHA z alg",
+                algaeTitle: "Roślinne omega-3 z mikroalg jako osobna linia produktu",
+                algaeP1: "Olej z mikroalg to nowoczesna alternatywa dla osób, które szukają DHA bez ryb i bez składników pochodzących ze skorupiaków. Mikroalgi są pierwotnym źródłem DHA w morskim łańcuchu pokarmowym, dlatego stanowią logiczny kierunek rozwoju suplementów omega-3.",
+                algaeP2: "Linia Revervia obejmuje oleje z alg w naturalnej formie triglicerydowej, z wysoką zawartością DHA. To rozwiązanie pasuje do produktów pozycjonowanych jako fish-free, vegan, soy free, GMO free i solvent free.",
+                algaeCard1: "praktyczny wariant do codziennej suplementacji",
+                algaeCard2: "wysoka koncentracja DHA z mikroalg",
+                algaeCard3: "najwyższa koncentracja DHA w tej linii",
+                algaeImageAlt: "Revervia DHA z mikroalg jako roślinne źródło omega-3",
+                algaeCaption: "DHA z alg może być komunikowane jako osobna, roślinna linia omega-3 dla klientów unikających ryb i skorupiaków.",
+                pathsEyebrow: "Dwie ścieżki suplementacji",
+                pathsTitle: "Olej z kryla i DHA z alg mogą odpowiadać na różne potrzeby klientów",
+                pathsText: "Olej z kryla jest dobrym kierunkiem dla osób szukających kompleksu EPA/DHA z fosfolipidami, choliną i astaksantyną. Olej z alg lepiej pasuje do klientów, którzy chcą roślinnego DHA bez ryb i bez skorupiaków.",
+                krillLabel: "KRYL",
+                algaeLabel: "ALGI",
+                pathKrillTitle: "Kompleks morski",
+                pathKrillText: "EPA, DHA, fosfolipidy, cholina i astaksantyna w jednej formule pochodzącej z kryla.",
+                pathAlgaeTitle: "Roślinne DHA",
+                pathAlgaeText: "Fish-free alternatywa dla osób szukających wysokiej zawartości DHA z mikroalg.",
+                faqTitle: "Najczęściej zadawane pytania",
+                faq1Q: "Co zawiera olej z kryla?",
+                faq1A: "Olej z kryla zawiera kwasy omega-3 EPA i DHA, fosfolipidy, cholinę oraz naturalnie obecną astaksantynę. To połączenie odróżnia go od wielu klasycznych olejów rybich.",
+                faq2Q: "Czym olej z kryla różni się od oleju rybiego?",
+                faq2A: "Najważniejszą różnicą jest forma lipidowa. W oleju z kryla duża część omega-3 występuje w formie fosfolipidów, które są naturalnym elementem błon komórkowych.",
+                faq3Q: "Czym jest DHA z alg?",
+                faq3A: "DHA z alg to roślinne źródło kwasu dokozaheksaenowego. Jest odpowiednie dla produktów kierowanych do osób, które nie chcą stosować oleju rybiego lub składników ze skorupiaków.",
+                faq4Q: "Czy olej z kryla jest dla każdego?",
+                faq4A: "Olej z kryla pochodzi ze skorupiaków. Osoby z alergią na skorupiaki, kobiety w ciąży, osoby karmiące piersią oraz osoby przyjmujące leki powinny skonsultować stosowanie suplementu z lekarzem.",
+                contactEyebrow: "Kontakt",
+                contactTitle: "Zapytaj o olej z kryla lub DHA z alg",
+                contactText: "Skontaktuj się, jeżeli chcesz uzyskać więcej informacji o produkcie, wariantach, dokumentacji jakościowej lub możliwościach współpracy.",
+                contactDetails: "Zapytania dotyczące oleju z kryla, DHA z alg i produktów omega-3",
+                formName: "Imię i nazwisko / firma",
+                formNamePlaceholder: "Jan Kowalski / Nazwa firmy",
+                formEmail: "E-mail",
+                formEmailPlaceholder: "email@firma.pl",
+                formTopic: "Temat",
+                optionKrill: "Olej z kryla",
+                optionAlgae: "DHA z alg",
+                optionDocs: "Dokumentacja jakościowa",
+                optionCooperation: "Współpraca",
+                optionOther: "Inne",
+                formMessage: "Wiadomość",
+                formMessagePlaceholder: "Napisz, czego potrzebujesz: produkt, wariant, ilość, dokumentacja, rynek sprzedaży.",
+                formSubmit: "Wyślij zapytanie",
+                footerBrand: "Olej z Kryla Premium",
+                footerText: "Strona informacyjna dotycząca oleju z kryla, omega-3 EPA/DHA oraz DHA z alg. Treści nie zastępują porady medycznej.",
+                footerTop: "Powrót na górę"
+            },
+            en: {
+                htmlLang: "en",
+                ogLocale: "en_GB",
+                pageTitle: "Premium Krill Oil | Omega-3 EPA DHA, Phospholipids and Astaxanthin",
+                metaDescription: "Premium krill oil with omega-3 EPA and DHA, phospholipids, choline and natural astaxanthin. Learn about the composition, quality, traceability and plant-based DHA from algae.",
+                metaKeywords: "krill oil, omega 3 krill oil, omega 3 EPA DHA, phospholipids, choline, astaxanthin, Antarctic krill, algae DHA, algae oil, omega 3 supplement",
+                ogTitle: "Premium Krill Oil | Omega-3 EPA DHA",
+                ogDescription: "A marine omega-3 complex from krill: EPA, DHA, phospholipids, choline and astaxanthin. Plus plant-based DHA from algae.",
+                brandName: "Premium Krill Oil",
+                logoAria: "Premium Krill Oil homepage",
+                openMenu: "Open menu",
+                mainNavigation: "Main navigation",
+                languageChooser: "Language selection",
+                navProduct: "Product",
+                navIngredients: "Composition",
+                navQuality: "Quality",
+                navAlgae: "Algae DHA",
+                navFaq: "FAQ",
+                navContact: "Contact",
+                heroEyebrow: "Omega-3 from Antarctic krill",
+                heroTitle: "Premium krill oil with EPA, DHA, phospholipids and astaxanthin",
+                heroText: "A modern marine omega-3 complex for people looking for high-quality supplementation based on a clean source, full traceability and nutrients naturally present in krill oil.",
+                heroCtaPrimary: "Ask about the product",
+                heroCtaSecondary: "View composition",
+                keyIngredients: "Key ingredients",
+                badgeEpaDha: "EPA and DHA",
+                badgePhospholipids: "Phospholipids",
+                badgeCholine: "Choline",
+                badgeAstaxanthin: "Astaxanthin",
+                heroImageAria: "Capsules and product variants",
+                heroImageAlt: "Omega-3 krill oil capsules and example Superba Krill product variants",
+                heroCardTitle: "Natural multi-nutrient complex",
+                heroCardText: "Omega-3 EPA/DHA, phospholipids, choline and astaxanthin in one formula.",
+                productEyebrow: "Why krill oil",
+                productTitle: "Omega-3 in phospholipid form",
+                productP1: "Krill oil stands out because omega-3 EPA and DHA are present to a large extent in phospholipid form. Phospholipids are natural components of cell membranes, which makes this omega-3 format suitable for clear communication around cellular nutrition and everyday support.",
+                productP2: "The formula combines several nutrients naturally found in krill: EPA, DHA, phospholipids, choline and astaxanthin. This makes krill oil more than a conventional omega-3 source — it is a broader lipid complex.",
+                productP3: "It is intended for people who care not only about EPA and DHA content, but also about raw material origin, freshness, purity, a transparent supply chain and convenient use.",
+                feature1Title: "EPA and DHA",
+                feature1Text: "Key omega-3 fatty acids used in supplements that complement the everyday diet.",
+                feature2Title: "Phospholipids",
+                feature2Text: "A lipid form characteristic of krill oil and associated with the structure of cell membranes.",
+                feature3Title: "Choline",
+                feature3Text: "A nutrient important for normal lipid metabolism, homocysteine metabolism and liver function.",
+                feature4Title: "Astaxanthin",
+                feature4Text: "A natural antioxidant responsible for the intense red colour of krill oil.",
+                supportEyebrow: "Daily nutritional support",
+                supportTitle: "A thoughtful formula for people who value supplement quality",
+                supportText: "The content is written in a factual way without treatment promises. It focuses on composition, quality, origin and authorised communication directions for EPA, DHA and choline.",
+                benefitHeartTitle: "Heart",
+                benefitHeartText: "EPA and DHA contribute to the normal function of the heart. The beneficial effect is obtained with an appropriate daily intake of these fatty acids.",
+                benefitBrainTitle: "Brain and vision",
+                benefitBrainText: "DHA contributes to the maintenance of normal brain function and normal vision when the required conditions of use are met.",
+                benefitLiverTitle: "Liver and metabolism",
+                benefitLiverText: "Choline supports normal lipid metabolism, normal homocysteine metabolism and normal liver function.",
+                benefitActiveTitle: "Active lifestyle",
+                benefitActiveText: "Krill oil can be included in the daily supplementation routine of active people who want to add omega-3 and lipid nutrients to their diet.",
+                compositionEyebrow: "Product composition",
+                compositionTitle: "Example Superba Krill profile per 2-capsule serving",
+                compositionText: "The table below presents an example ingredient profile for two krill oil variants. Instead of repeating the same data in an image, the information is shown in a readable table that works better on mobile devices and supports SEO.",
+                compositionTableAria: "Krill oil composition table",
+                tableIngredient: "Ingredient",
+                tableOmega3: "Omega-3",
+                tablePhospholipids: "Phospholipids",
+                tableCholine: "Choline",
+                tableAstaxanthin: "Astaxanthin",
+                compositionNote: "The data is informational and shows an example product profile. The final label, dosage and health claims should be adapted to the specific sales market.",
+                nutritionHighlightsAria: "Key composition highlights",
+                nutrition1Title: "Omega-3 complex",
+                nutrition1Text: "EPA and DHA are essential omega-3 fatty acids that many people do not consume in sufficient amounts through their daily diet.",
+                nutrition2Title: "Krill phospholipids",
+                nutrition2Text: "Phospholipids give krill oil its characteristic profile and are one of the key arguments that distinguish it from conventional fish oils.",
+                nutrition3Title: "Choline and astaxanthin",
+                nutrition3Text: "Choline strengthens the functional profile of the product, while astaxanthin is a natural component responsible for the red colour of the oil.",
+                qualityEyebrow: "Quality and origin",
+                qualityTitle: "Clean source, controlled supply chain and full traceability",
+                qualityText: "In the omega-3 category, raw material quality is crucial. Premium krill oil should be evaluated not only by EPA and DHA content, but also by origin, freshness, harvesting method, quality documentation and batch traceability.",
+                qualityLi1: "sourced from Antarctic krill fisheries,",
+                qualityLi2: "controlled and transparent supply chain,",
+                qualityLi3: "technology designed to reduce by-catch,",
+                qualityLi4: "naturally present astaxanthin,",
+                qualityLi5: "communication based on quality documentation and research.",
+                sustainabilityAlt: "Certifications and quality standards related to responsible krill oil sourcing",
+                traceabilityAlt: "Infographic showing krill oil traceability from catch to final product",
+                proof1Title: "clinical studies",
+                proof1Text: "The source materials highlight extensive research around krill oil and its nutrients.",
+                proof2Title: "patents",
+                proof2Text: "Technology and know-how are important elements of premium product positioning.",
+                proof3Title: "countries",
+                proof3Text: "Global presence supports supplier credibility and supply-chain stability.",
+                proof4Title: "traceability",
+                proof4Text: "The ability to track batches from source to final product is one of the main quality arguments.",
+                algaeEyebrow: "Algae DHA",
+                algaeTitle: "Plant-based omega-3 from microalgae as a separate product line",
+                algaeP1: "Microalgae oil is a modern alternative for people looking for DHA without fish and without shellfish-derived ingredients. Microalgae are the original source of DHA in the marine food chain, making them a logical direction for omega-3 supplement development.",
+                algaeP2: "The Revervia line includes algae oils in natural triglyceride form with a high DHA content. This solution fits products positioned as fish-free, vegan, soy free, GMO free and solvent free.",
+                algaeCard1: "practical option for everyday supplementation",
+                algaeCard2: "high DHA concentration from microalgae",
+                algaeCard3: "highest DHA concentration in this line",
+                algaeImageAlt: "Revervia DHA from microalgae as a plant-based omega-3 source",
+                algaeCaption: "Algae DHA can be presented as a separate plant-based omega-3 line for customers avoiding fish and shellfish.",
+                pathsEyebrow: "Two supplementation paths",
+                pathsTitle: "Krill oil and algae DHA can address different customer needs",
+                pathsText: "Krill oil is suitable for people looking for an EPA/DHA complex with phospholipids, choline and astaxanthin. Algae oil is better suited to customers who want plant-based DHA without fish and shellfish.",
+                krillLabel: "KRILL",
+                algaeLabel: "ALGAE",
+                pathKrillTitle: "Marine complex",
+                pathKrillText: "EPA, DHA, phospholipids, choline and astaxanthin in one formula derived from krill.",
+                pathAlgaeTitle: "Plant-based DHA",
+                pathAlgaeText: "A fish-free alternative for people looking for a high DHA content from microalgae.",
+                faqTitle: "Frequently asked questions",
+                faq1Q: "What does krill oil contain?",
+                faq1A: "Krill oil contains omega-3 EPA and DHA, phospholipids, choline and naturally occurring astaxanthin. This combination distinguishes it from many conventional fish oils.",
+                faq2Q: "How is krill oil different from fish oil?",
+                faq2A: "The key difference is the lipid form. In krill oil, a large share of omega-3 is present in phospholipid form, which is a natural component of cell membranes.",
+                faq3Q: "What is algae DHA?",
+                faq3A: "Algae DHA is a plant-based source of docosahexaenoic acid. It is suitable for products aimed at people who do not want fish oil or shellfish-derived ingredients.",
+                faq4Q: "Is krill oil suitable for everyone?",
+                faq4A: "Krill oil comes from shellfish. People with shellfish allergies, pregnant or breastfeeding women and people taking medication should consult a doctor before using this supplement.",
+                contactEyebrow: "Contact",
+                contactTitle: "Ask about krill oil or algae DHA",
+                contactText: "Get in touch if you need more information about the product, variants, quality documentation or cooperation options.",
+                contactDetails: "Enquiries about krill oil, algae DHA and omega-3 products",
+                formName: "Full name / company",
+                formNamePlaceholder: "John Smith / Company name",
+                formEmail: "E-mail",
+                formEmailPlaceholder: "email@company.com",
+                formTopic: "Topic",
+                optionKrill: "Krill oil",
+                optionAlgae: "Algae DHA",
+                optionDocs: "Quality documentation",
+                optionCooperation: "Cooperation",
+                optionOther: "Other",
+                formMessage: "Message",
+                formMessagePlaceholder: "Write what you need: product, variant, quantity, documentation, sales market.",
+                formSubmit: "Send enquiry",
+                footerBrand: "Premium Krill Oil",
+                footerText: "Informational website about krill oil, omega-3 EPA/DHA and algae DHA. The content does not replace medical advice.",
+                footerTop: "Back to top"
+            },
+            de: {
+                htmlLang: "de",
+                ogLocale: "de_DE",
+                pageTitle: "Premium Krillöl | Omega-3 EPA DHA, Phospholipide und Astaxanthin",
+                metaDescription: "Premium Krillöl mit Omega-3 EPA und DHA, Phospholipiden, Cholin und natürlichem Astaxanthin. Informationen zu Zusammensetzung, Qualität, Rückverfolgbarkeit und pflanzlichem DHA aus Algen.",
+                metaKeywords: "Krillöl, Omega 3 Krillöl, Omega 3 EPA DHA, Phospholipide, Cholin, Astaxanthin, antarktischer Krill, Algen DHA, Algenöl, Omega 3 Supplement",
+                ogTitle: "Premium Krillöl | Omega-3 EPA DHA",
+                ogDescription: "Ein mariner Omega-3-Komplex aus Krill: EPA, DHA, Phospholipide, Cholin und Astaxanthin. Zusätzlich pflanzliches DHA aus Algen.",
+                brandName: "Premium Krillöl",
+                logoAria: "Startseite Premium Krillöl",
+                openMenu: "Menü öffnen",
+                mainNavigation: "Hauptnavigation",
+                languageChooser: "Sprachauswahl",
+                navProduct: "Produkt",
+                navIngredients: "Zusammensetzung",
+                navQuality: "Qualität",
+                navAlgae: "Algen-DHA",
+                navFaq: "FAQ",
+                navContact: "Kontakt",
+                heroEyebrow: "Omega-3 aus antarktischem Krill",
+                heroTitle: "Premium Krillöl mit EPA, DHA, Phospholipiden und Astaxanthin",
+                heroText: "Ein moderner mariner Omega-3-Komplex für Menschen, die eine hochwertige Supplementierung aus sauberer Quelle, mit vollständiger Rückverfolgbarkeit und natürlich im Krillöl vorkommenden Nährstoffen suchen.",
+                heroCtaPrimary: "Produkt anfragen",
+                heroCtaSecondary: "Zusammensetzung ansehen",
+                keyIngredients: "Wichtigste Inhaltsstoffe",
+                badgeEpaDha: "EPA und DHA",
+                badgePhospholipids: "Phospholipide",
+                badgeCholine: "Cholin",
+                badgeAstaxanthin: "Astaxanthin",
+                heroImageAria: "Kapseln und Produktvarianten",
+                heroImageAlt: "Omega-3-Krillöl-Kapseln und beispielhafte Superba-Krill-Produktvarianten",
+                heroCardTitle: "Natürlicher Multi-Nährstoff-Komplex",
+                heroCardText: "Omega-3 EPA/DHA, Phospholipide, Cholin und Astaxanthin in einer Formel.",
+                productEyebrow: "Warum Krillöl",
+                productTitle: "Omega-3 in Phospholipidform",
+                productP1: "Krillöl unterscheidet sich dadurch, dass Omega-3 EPA und DHA zu einem großen Teil in Phospholipidform vorliegen. Phospholipide sind natürliche Bestandteile der Zellmembranen, wodurch sich diese Omega-3-Form gut für eine klare Kommunikation rund um Zellernährung und tägliche Unterstützung eignet.",
+                productP2: "Die Formel kombiniert mehrere natürlich im Krill vorkommende Nährstoffe: EPA, DHA, Phospholipide, Cholin und Astaxanthin. Dadurch ist Krillöl mehr als eine klassische Omega-3-Quelle — es ist ein breiterer Lipidkomplex.",
+                productP3: "Das Produkt richtet sich an Menschen, die nicht nur auf EPA- und DHA-Gehalt achten, sondern auch auf Herkunft des Rohstoffs, Frische, Reinheit, transparente Lieferkette und einfache Anwendung.",
+                feature1Title: "EPA und DHA",
+                feature1Text: "Wichtige Omega-3-Fettsäuren, die in Supplements zur Ergänzung der täglichen Ernährung eingesetzt werden.",
+                feature2Title: "Phospholipide",
+                feature2Text: "Eine für Krillöl charakteristische Lipidform, die mit der Struktur von Zellmembranen verbunden ist.",
+                feature3Title: "Cholin",
+                feature3Text: "Ein Nährstoff, der für den normalen Fettstoffwechsel, Homocystein-Stoffwechsel und die Leberfunktion wichtig ist.",
+                feature4Title: "Astaxanthin",
+                feature4Text: "Ein natürliches Antioxidans, das für die intensive rote Farbe von Krillöl verantwortlich ist.",
+                supportEyebrow: "Tägliche Ernährungsergänzung",
+                supportTitle: "Eine durchdachte Formel für Menschen, die Wert auf Qualität legen",
+                supportText: "Die Inhalte sind sachlich formuliert und enthalten keine Heilversprechen. Der Fokus liegt auf Zusammensetzung, Qualität, Herkunft und zulässigen Kommunikationsrichtungen für EPA, DHA und Cholin.",
+                benefitHeartTitle: "Herz",
+                benefitHeartText: "EPA und DHA tragen zu einer normalen Herzfunktion bei. Die positive Wirkung wird bei einer geeigneten täglichen Aufnahme dieser Fettsäuren erzielt.",
+                benefitBrainTitle: "Gehirn und Sehkraft",
+                benefitBrainText: "DHA trägt zur Erhaltung einer normalen Gehirnfunktion und normalen Sehkraft bei, wenn die erforderlichen Verwendungsbedingungen erfüllt sind.",
+                benefitLiverTitle: "Leber und Stoffwechsel",
+                benefitLiverText: "Cholin unterstützt einen normalen Fettstoffwechsel, einen normalen Homocystein-Stoffwechsel und eine normale Leberfunktion.",
+                benefitActiveTitle: "Aktiver Lebensstil",
+                benefitActiveText: "Krillöl kann in die tägliche Supplementierung aktiver Menschen integriert werden, die ihre Ernährung mit Omega-3 und Lipidnährstoffen ergänzen möchten.",
+                compositionEyebrow: "Produktzusammensetzung",
+                compositionTitle: "Beispielhaftes Superba-Krill-Profil pro Portion mit 2 Kapseln",
+                compositionText: "Die folgende Tabelle zeigt ein beispielhaftes Nährstoffprofil für zwei Krillöl-Varianten. Statt dieselben Daten in einer Grafik zu wiederholen, werden sie in einer lesbaren Tabelle dargestellt, die mobil besser funktioniert und SEO-freundlicher ist.",
+                compositionTableAria: "Tabelle zur Krillöl-Zusammensetzung",
+                tableIngredient: "Inhaltsstoff",
+                tableOmega3: "Omega-3",
+                tablePhospholipids: "Phospholipide",
+                tableCholine: "Cholin",
+                tableAstaxanthin: "Astaxanthin",
+                compositionNote: "Die Angaben dienen der Information und zeigen ein beispielhaftes Produktprofil. Finale Etikettierung, Dosierung und Health Claims sollten an den jeweiligen Zielmarkt angepasst werden.",
+                nutritionHighlightsAria: "Wichtigste Hinweise zur Zusammensetzung",
+                nutrition1Title: "Omega-3-Komplex",
+                nutrition1Text: "EPA und DHA sind wichtige Omega-3-Fettsäuren, die viele Menschen über die tägliche Ernährung nicht in ausreichender Menge aufnehmen.",
+                nutrition2Title: "Krill-Phospholipide",
+                nutrition2Text: "Phospholipide prägen das charakteristische Profil von Krillöl und sind ein zentrales Unterscheidungsmerkmal gegenüber klassischen Fischölen.",
+                nutrition3Title: "Cholin und Astaxanthin",
+                nutrition3Text: "Cholin stärkt das funktionelle Profil des Produkts, während Astaxanthin ein natürlicher Bestandteil ist, der für die rote Farbe des Öls verantwortlich ist.",
+                qualityEyebrow: "Qualität und Herkunft",
+                qualityTitle: "Saubere Quelle, kontrollierte Lieferkette und volle Rückverfolgbarkeit",
+                qualityText: "In der Omega-3-Kategorie ist die Qualität des Rohstoffs entscheidend. Premium-Krillöl sollte nicht nur anhand des EPA- und DHA-Gehalts bewertet werden, sondern auch anhand von Herkunft, Frische, Gewinnungsmethode, Qualitätsdokumentation und Chargenrückverfolgbarkeit.",
+                qualityLi1: "Herkunft aus antarktischen Krill-Fischereien,",
+                qualityLi2: "kontrollierte und transparente Lieferkette,",
+                qualityLi3: "Technologie zur Reduzierung von Beifang,",
+                qualityLi4: "natürlich vorkommendes Astaxanthin,",
+                qualityLi5: "Kommunikation auf Basis von Qualitätsdokumentation und Forschung.",
+                sustainabilityAlt: "Zertifizierungen und Qualitätsstandards im Zusammenhang mit verantwortungsvoller Krillöl-Gewinnung",
+                traceabilityAlt: "Infografik zur Rückverfolgbarkeit von Krillöl vom Fang bis zum Endprodukt",
+                proof1Title: "klinische Studien",
+                proof1Text: "Die Ausgangsmaterialien betonen die breite Forschungsbasis zu Krillöl und seinen Nährstoffen.",
+                proof2Title: "Patente",
+                proof2Text: "Technologie und Know-how sind wichtige Elemente der Premium-Positionierung.",
+                proof3Title: "Länder",
+                proof3Text: "Globale Präsenz stärkt die Glaubwürdigkeit des Lieferanten und die Stabilität der Lieferkette.",
+                proof4Title: "Rückverfolgbarkeit",
+                proof4Text: "Die Möglichkeit, Chargen von der Quelle bis zum Endprodukt zu verfolgen, ist eines der wichtigsten Qualitätsargumente.",
+                algaeEyebrow: "Algen-DHA",
+                algaeTitle: "Pflanzliches Omega-3 aus Mikroalgen als eigene Produktlinie",
+                algaeP1: "Mikroalgenöl ist eine moderne Alternative für Menschen, die DHA ohne Fisch und ohne Inhaltsstoffe aus Schalentieren suchen. Mikroalgen sind die ursprüngliche DHA-Quelle in der marinen Nahrungskette und daher ein logischer Entwicklungsweg für Omega-3-Supplements.",
+                algaeP2: "Die Revervia-Linie umfasst Algenöle in natürlicher Triglyceridform mit hohem DHA-Gehalt. Diese Lösung passt zu Produkten, die als fish-free, vegan, soy free, GMO free und solvent free positioniert werden.",
+                algaeCard1: "praktische Variante für die tägliche Supplementierung",
+                algaeCard2: "hohe DHA-Konzentration aus Mikroalgen",
+                algaeCard3: "höchste DHA-Konzentration dieser Linie",
+                algaeImageAlt: "Revervia DHA aus Mikroalgen als pflanzliche Omega-3-Quelle",
+                algaeCaption: "Algen-DHA kann als eigene pflanzliche Omega-3-Linie für Kunden kommuniziert werden, die Fisch und Schalentiere vermeiden.",
+                pathsEyebrow: "Zwei Supplementierungswege",
+                pathsTitle: "Krillöl und Algen-DHA können unterschiedliche Kundenbedürfnisse abdecken",
+                pathsText: "Krillöl eignet sich für Menschen, die einen EPA/DHA-Komplex mit Phospholipiden, Cholin und Astaxanthin suchen. Algenöl passt besser zu Kunden, die pflanzliches DHA ohne Fisch und Schalentiere bevorzugen.",
+                krillLabel: "KRILL",
+                algaeLabel: "ALGEN",
+                pathKrillTitle: "Mariner Komplex",
+                pathKrillText: "EPA, DHA, Phospholipide, Cholin und Astaxanthin in einer aus Krill gewonnenen Formel.",
+                pathAlgaeTitle: "Pflanzliches DHA",
+                pathAlgaeText: "Eine fish-free Alternative für Menschen, die einen hohen DHA-Gehalt aus Mikroalgen suchen.",
+                faqTitle: "Häufig gestellte Fragen",
+                faq1Q: "Was enthält Krillöl?",
+                faq1A: "Krillöl enthält Omega-3 EPA und DHA, Phospholipide, Cholin und natürlich vorkommendes Astaxanthin. Diese Kombination unterscheidet es von vielen klassischen Fischölen.",
+                faq2Q: "Wie unterscheidet sich Krillöl von Fischöl?",
+                faq2A: "Der wichtigste Unterschied ist die Lipidform. In Krillöl liegt ein großer Anteil von Omega-3 in Phospholipidform vor, die ein natürlicher Bestandteil von Zellmembranen ist.",
+                faq3Q: "Was ist Algen-DHA?",
+                faq3A: "Algen-DHA ist eine pflanzliche Quelle für Docosahexaensäure. Es eignet sich für Produkte, die sich an Menschen richten, die kein Fischöl oder Inhaltsstoffe aus Schalentieren verwenden möchten.",
+                faq4Q: "Ist Krillöl für jeden geeignet?",
+                faq4A: "Krillöl stammt aus Schalentieren. Menschen mit Schalentierallergie, Schwangere, Stillende sowie Personen, die Medikamente einnehmen, sollten vor der Anwendung ärztlichen Rat einholen.",
+                contactEyebrow: "Kontakt",
+                contactTitle: "Fragen Sie Krillöl oder Algen-DHA an",
+                contactText: "Kontaktieren Sie uns, wenn Sie weitere Informationen zum Produkt, zu Varianten, Qualitätsdokumentation oder Kooperationsmöglichkeiten benötigen.",
+                contactDetails: "Anfragen zu Krillöl, Algen-DHA und Omega-3-Produkten",
+                formName: "Name / Firma",
+                formNamePlaceholder: "Max Mustermann / Firmenname",
+                formEmail: "E-Mail",
+                formEmailPlaceholder: "email@firma.de",
+                formTopic: "Thema",
+                optionKrill: "Krillöl",
+                optionAlgae: "Algen-DHA",
+                optionDocs: "Qualitätsdokumentation",
+                optionCooperation: "Zusammenarbeit",
+                optionOther: "Sonstiges",
+                formMessage: "Nachricht",
+                formMessagePlaceholder: "Schreiben Sie, was Sie benötigen: Produkt, Variante, Menge, Dokumentation, Zielmarkt.",
+                formSubmit: "Anfrage senden",
+                footerBrand: "Premium Krillöl",
+                footerText: "Informationsseite über Krillöl, Omega-3 EPA/DHA und Algen-DHA. Die Inhalte ersetzen keine medizinische Beratung.",
+                footerTop: "Nach oben"
+            }
+        };
+
+        const schemaFaqByLang = {
+            pl: [
+                ["Co zawiera olej z kryla?", "Olej z kryla zawiera kwasy omega-3 EPA i DHA, fosfolipidy, cholinę oraz naturalnie obecną astaksantynę."],
+                ["Czym olej z kryla różni się od oleju rybiego?", "W oleju z kryla duża część omega-3 występuje w formie fosfolipidów, które są naturalnym elementem błon komórkowych."],
+                ["Czym jest DHA z alg?", "DHA z alg to roślinne źródło kwasu dokozaheksaenowego, odpowiednie dla produktów bez ryb i bez skorupiaków."]
+            ],
+            en: [
+                ["What does krill oil contain?", "Krill oil contains omega-3 EPA and DHA, phospholipids, choline and naturally occurring astaxanthin."],
+                ["How is krill oil different from fish oil?", "In krill oil, a large share of omega-3 is present in phospholipid form, which is a natural component of cell membranes."],
+                ["What is algae DHA?", "Algae DHA is a plant-based source of docosahexaenoic acid, suitable for products without fish and shellfish-derived ingredients."]
+            ],
+            de: [
+                ["Was enthält Krillöl?", "Krillöl enthält Omega-3 EPA und DHA, Phospholipide, Cholin und natürlich vorkommendes Astaxanthin."],
+                ["Wie unterscheidet sich Krillöl von Fischöl?", "In Krillöl liegt ein großer Anteil von Omega-3 in Phospholipidform vor, die ein natürlicher Bestandteil von Zellmembranen ist."],
+                ["Was ist Algen-DHA?", "Algen-DHA ist eine pflanzliche Quelle für Docosahexaensäure und eignet sich für Produkte ohne Fisch und Inhaltsstoffe aus Schalentieren."]
+            ]
+        };
+
+        function setMeta(name, content) {
+            const element = document.querySelector(`meta[name="${name}"]`);
+            if (element) element.setAttribute("content", content);
+        }
+
+        function setOg(property, content) {
+            const element = document.querySelector(`meta[property="${property}"]`);
+            if (element) element.setAttribute("content", content);
+        }
+
+        function updateFaqSchema(lang) {
+            const schema = document.getElementById("faq-schema");
+            if (!schema) return;
+
+            const entries = schemaFaqByLang[lang] || schemaFaqByLang.pl;
+            schema.textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": entries.map(([question, answer]) => ({
+                    "@type": "Question",
+                    "name": question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": answer
+                    }
+                }))
+            }, null, 2);
+        }
+
+        function setLanguage(lang) {
+            const selected = translations[lang] ? lang : "pl";
+            const dictionary = translations[selected];
+
+            document.documentElement.setAttribute("lang", dictionary.htmlLang);
+            document.title = dictionary.pageTitle;
+            setMeta("description", dictionary.metaDescription);
+            setMeta("keywords", dictionary.metaKeywords);
+            setOg("og:title", dictionary.ogTitle);
+            setOg("og:description", dictionary.ogDescription);
+            setOg("og:locale", dictionary.ogLocale);
+
+            document.querySelectorAll("[data-i18n]").forEach((element) => {
+                const key = element.getAttribute("data-i18n");
+                if (dictionary[key]) element.textContent = dictionary[key];
+            });
+
+            document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+                const key = element.getAttribute("data-i18n-placeholder");
+                if (dictionary[key]) element.setAttribute("placeholder", dictionary[key]);
+            });
+
+            document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+                const key = element.getAttribute("data-i18n-alt");
+                if (dictionary[key]) element.setAttribute("alt", dictionary[key]);
+            });
+
+            document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+                const key = element.getAttribute("data-i18n-aria");
+                if (dictionary[key]) element.setAttribute("aria-label", dictionary[key]);
+            });
+
+            document.querySelectorAll(".language-switcher button").forEach((button) => {
+                const isActive = button.getAttribute("data-lang") === selected;
+                button.classList.toggle("is-active", isActive);
+                button.setAttribute("aria-pressed", isActive ? "true" : "false");
+            });
+
+            updateFaqSchema(selected);
+            localStorage.setItem("siteLanguage", selected);
+        }
+
+        document.querySelectorAll(".language-switcher button").forEach((button) => {
+            button.addEventListener("click", () => {
+                setLanguage(button.getAttribute("data-lang"));
+            });
+        });
+
+        setLanguage(localStorage.getItem("siteLanguage") || "pl");
+    </script>
 </body>
 </html>

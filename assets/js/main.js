@@ -1,4 +1,4 @@
-// Mobile navigation and small UX improvements for the static landing page.
+// Mobile navigation
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
 
@@ -16,65 +16,62 @@ if (navToggle && siteNav) {
     });
 }
 
-// Image lightbox: opens every content image in full view.
-const pageImages = document.querySelectorAll('main img');
+// Single image lightbox for desktop and mobile
+(() => {
+    const images = document.querySelectorAll('main img:not(.language-button img)');
 
-if (pageImages.length > 0) {
+    if (!images.length) {
+        return;
+    }
+
+    const oldLightboxes = document.querySelectorAll('.image-lightbox');
+    oldLightboxes.forEach((item) => item.remove());
+
     const lightbox = document.createElement('div');
     lightbox.className = 'image-lightbox';
     lightbox.setAttribute('role', 'dialog');
     lightbox.setAttribute('aria-modal', 'true');
-    lightbox.setAttribute('aria-label', 'Powiększony podgląd grafiki');
+    lightbox.setAttribute('aria-label', 'Powiększony podgląd zdjęcia');
 
     lightbox.innerHTML = `
-        <div class="image-lightbox__content">
-            <button class="image-lightbox__close" type="button" aria-label="Zamknij podgląd">&times;</button>
-            <img class="image-lightbox__image" src="" alt="" />
-            <div class="image-lightbox__caption"></div>
-        </div>
+        <button class="image-lightbox__close" type="button" aria-label="Zamknij podgląd">&times;</button>
+        <img class="image-lightbox__image" src="" alt="">
     `;
 
     document.body.appendChild(lightbox);
 
     const lightboxImage = lightbox.querySelector('.image-lightbox__image');
-    const lightboxCaption = lightbox.querySelector('.image-lightbox__caption');
     const closeButton = lightbox.querySelector('.image-lightbox__close');
 
-    const closeLightbox = () => {
+    function openLightbox(image) {
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt || 'Powiększone zdjęcie';
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
         lightbox.classList.remove('is-open');
-        document.body.style.overflow = '';
-        lightboxImage.src = '';
+        lightboxImage.removeAttribute('src');
         lightboxImage.alt = '';
-        lightboxCaption.textContent = '';
-    };
+        document.body.style.overflow = '';
+    }
 
-    pageImages.forEach((image) => {
-        image.setAttribute('tabindex', '0');
+    images.forEach((image) => {
+        image.style.cursor = 'zoom-in';
 
-        const openImage = () => {
-            const figureCaption = image.closest('figure')?.querySelector('figcaption')?.textContent?.trim();
-            const altText = image.getAttribute('alt') || 'Powiększona grafika';
-
-            lightboxImage.src = image.currentSrc || image.src;
-            lightboxImage.alt = altText;
-            lightboxCaption.textContent = figureCaption || altText;
-
-            lightbox.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-            closeButton.focus();
-        };
-
-        image.addEventListener('click', openImage);
-
-        image.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                openImage();
-            }
+        image.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            openLightbox(image);
         });
     });
 
-    closeButton.addEventListener('click', closeLightbox);
+    closeButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        closeLightbox();
+    });
 
     lightbox.addEventListener('click', (event) => {
         if (event.target === lightbox) {
@@ -87,4 +84,4 @@ if (pageImages.length > 0) {
             closeLightbox();
         }
     });
-}
+})();
