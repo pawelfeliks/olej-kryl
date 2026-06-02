@@ -81,6 +81,33 @@
 </head>
 
 <body>
+    <div class="language-gate" id="languageGate" aria-modal="true" role="dialog" aria-labelledby="languageGateTitle">
+        <div class="language-gate__backdrop"></div>
+
+        <div class="language-gate__card">
+            <p class="language-gate__eyebrow">Language / Sprache / Język</p>
+            <h2 id="languageGateTitle">Choose your language</h2>
+            <p class="language-gate__text">
+                Select the language version of the website.
+            </p>
+
+            <div class="language-gate__options">
+                <button type="button" class="language-gate__button" data-lang-select="en">
+                    <span class="flag-css flag-gb" aria-hidden="true"></span>
+                    <strong>English</strong>
+                </button>
+                <button type="button" class="language-gate__button" data-lang-select="de">
+                    <span class="flag-css flag-de" aria-hidden="true"></span>
+                    <strong>Deutsch</strong>
+                </button>
+                <button type="button" class="language-gate__button" data-lang-select="pl">
+                    <span class="flag-css flag-pl" aria-hidden="true"></span>
+                    <strong>Polski</strong>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <header id="header" class="site-header">
         <div class="container header-inner">
             <a href="#top" class="logo" aria-label="Strona główna Olej z Kryla Premium" data-i18n-aria="logoAria">
@@ -543,8 +570,6 @@
         ]
     }
     </script>
-
-    <script src="assets/js/main.js"></script>
 
     <script>
         const translations = {
@@ -1067,5 +1092,7 @@
 
         setLanguage(localStorage.getItem("siteLanguage") || "pl");
     </script>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

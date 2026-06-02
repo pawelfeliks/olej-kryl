@@ -16,9 +16,100 @@ if (navToggle && siteNav) {
     });
 }
 
+// Language gate / initial language selection
+(() => {
+    const languageGate = document.getElementById('languageGate');
+    const languageGateButtons = document.querySelectorAll('[data-lang-select]');
+    const languageButtons = document.querySelectorAll('[data-lang]');
+
+    const languageKey = 'siteLanguage';
+    const gateKey = 'languageGateAccepted';
+
+    function saveLanguage(lang) {
+        localStorage.setItem(languageKey, lang);
+    }
+
+    function markGateAccepted() {
+        localStorage.setItem(gateKey, 'true');
+    }
+
+    function updateActiveLanguageButton(lang) {
+        languageButtons.forEach((button) => {
+            const isActive = button.dataset.lang === lang;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        languageGateButtons.forEach((button) => {
+            button.classList.toggle('is-active', button.dataset.langSelect === lang);
+        });
+    }
+
+    function applyLanguageFromMain(lang) {
+        const selectedLanguage = lang || 'pl';
+
+        if (typeof window.setLanguage === 'function') {
+            window.setLanguage(selectedLanguage);
+        } else if (typeof setLanguage === 'function') {
+            setLanguage(selectedLanguage);
+        }
+
+        updateActiveLanguageButton(selectedLanguage);
+    }
+
+    function openLanguageGate() {
+        if (!languageGate) {
+            return;
+        }
+
+        languageGate.classList.add('is-visible');
+        document.body.classList.add('language-gate-open');
+    }
+
+    function closeLanguageGate() {
+        if (!languageGate) {
+            return;
+        }
+
+        languageGate.classList.remove('is-visible');
+        document.body.classList.remove('language-gate-open');
+    }
+
+    const savedLanguage = localStorage.getItem(languageKey) || 'pl';
+    const gateAccepted = localStorage.getItem(gateKey) === 'true';
+
+    applyLanguageFromMain(savedLanguage);
+
+    if (!gateAccepted) {
+        openLanguageGate();
+    }
+
+    languageGateButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const selectedLanguage = button.dataset.langSelect;
+
+            saveLanguage(selectedLanguage);
+            markGateAccepted();
+            applyLanguageFromMain(selectedLanguage);
+            closeLanguageGate();
+        });
+    });
+
+    languageButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const selectedLanguage = button.dataset.lang;
+
+            saveLanguage(selectedLanguage);
+            markGateAccepted();
+            applyLanguageFromMain(selectedLanguage);
+            closeLanguageGate();
+        });
+    });
+})();
+
 // Single image lightbox for desktop and mobile
 (() => {
-    const images = document.querySelectorAll('main img:not(.language-button img)');
+    const images = document.querySelectorAll('main img:not(.language-button img):not(.language-gate img)');
 
     if (!images.length) {
         return;
@@ -82,6 +173,15 @@ if (navToggle && siteNav) {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
             closeLightbox();
+        }
+
+        if (event.key === 'Escape') {
+            const languageGate = document.getElementById('languageGate');
+
+            if (languageGate && languageGate.classList.contains('is-visible')) {
+                languageGate.classList.remove('is-visible');
+                document.body.classList.remove('language-gate-open');
+            }
         }
     });
 })();
