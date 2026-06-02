@@ -780,6 +780,10 @@ h3 {
     align-items: start;
 }
 
+.composition-grid > * {
+    min-width: 0;
+}
+
 .composition-note {
     margin-top: 18px;
     color: var(--color-muted);
@@ -965,4 +969,54 @@ main img:not(.language-button img) {
 .language-button.is-active {
     background: rgba(255, 255, 255, 0.18);
     border-color: #ffffff;
+}
+
+/* Mobile fix for composition section */
+@media (max-width: 768px) {
+    #sklad .composition-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    #sklad .section-heading,
+    #sklad .composition-grid > div,
+    #sklad .nutrition-highlights {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    #sklad h2 {
+        font-size: clamp(2rem, 11vw, 3rem);
+        line-height: 1.05;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    #sklad p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    #sklad .nutrition-highlights {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #sklad .nutrition-highlights article {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #sklad .table-wrap {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #sklad .product-table {
+        min-width: 560px;
+    }
 }
